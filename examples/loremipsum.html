@@ -2,11 +2,14 @@
 <html>
     <head>
         <link href="../bower_components/perfect-scrollbar/min/perfect-scrollbar.min.css" rel="stylesheet">
+        <link href="../bower_components/perfect-scrollbar/src/style.css" rel="stylesheet" />
         <!== jquery should be provided by perfect-scrollbar's bower dependencies ==>
         <script src="../bower_components/jquery/dist/jquery.min.js" ></script>
         <script src="../bower_components/angular/angular.min.js" ></script>
         <script src="../bower_components/perfect-scrollbar/min/perfect-scrollbar.with-mousewheel.min.js" ></script>
         <script src="../src/angular-perfect-scrollbar.js" ></script>
+        <script src="../bower_components/perfect-scrollbar/src/script.js"></script>
+        <script src="../bower_components/perfect-scrollbar/src/slider.js"></script>
         <style>
         	.scroller {
         		white-space: pre-line;
@@ -38,8 +41,18 @@
             </div>
         </perfect-scrollbar>
         <p>scrollTop:{{scrollTop}}, scrollHeight:{{scrollHeight}}</p>
+
+        <h2>price</h2>
+        <div>
+            <rzslider
+                    rz-slider-floor="priceSlider.floor"
+                    rz-slider-ceil="priceSlider.ceil"
+                    rz-slider-model="priceSlider.min"
+                    rz-slider-high="priceSlider.max"></rzslider>
+        </div>
+        <p>min:{{priceSlider.min}}, max:{{priceSlider.max}}</p>
     <script>
-    	    	var app = angular.module('myApp', ['perfect_scrollbar']);
+    	    	var app = angular.module('myApp', ['rzModule','perfect_scrollbar']);
 
                 var ScrollCtrl = function($scope) {
                     $scope.someArray = [1, 2, 3];
@@ -60,6 +73,14 @@
                         $scope.scrollTop = scrollTop
                         $scope.scrollHeight = scrollHeight
                     }
+
+                    $scope.priceSlider = {
+                        min: 100,
+                        max: 180,
+                        ceil: 500,
+                        floor: 0
+                    };
+
                 };
 
         </script>

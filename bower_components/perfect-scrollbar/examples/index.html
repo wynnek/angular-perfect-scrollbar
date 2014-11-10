@@ -12,15 +12,15 @@
     <script src="../src/script.js"></script>
     <script src="../src/slider.js"></script>
     <style>
-        .contentHolder { position:relative; margin:0px auto; padding:0px; width: 600px; height: 400px; overflow: hidden; }
-        .contentHolder .content { background-image: url('./azusa.jpg'); width: 1280px; height: 720px; }
+        .contentHolder { position:relative; margin:0px auto; padding:0px; width: 640px; height: 360px; overflow: hidden; }
+        .contentHolder .content-x { background-image: url('./azusa.jpg'); width: 1920px; height: 360px; }
         .spacer { text-align:center }
         h2 { text-align: center; }
     </style>
     <script>
         jQuery(document).ready(function ($) {
             "use strict";
-            $('#SuppressScrollY').perfectScrollbar({suppressScrollY: true});
+            $('#SuppressScrollY').perfectScrollbar({minScrollbarLength:100, suppressScrollY: true, useBothWheelAxes: true, wheelSpeed:100});
         });
     </script>
 </head>
@@ -29,7 +29,7 @@
 <div ng-controller="mainCtrl">
     <h2>matrix</h2>
     <div id="SuppressScrollY" class="contentHolder">
-        <div class="content">
+        <div class="content-x">
         </div>
     </div>
 
